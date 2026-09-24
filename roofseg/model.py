@@ -1,5 +1,5 @@
 """U-Net whose blocks are the same pre-activation residual unit as the
-population encoder, just with convolutions instead of linears.
+population encoder from my Msc PopulationModelingFramework project, just with convolutions instead of linears.
 """
 
 from __future__ import annotations
