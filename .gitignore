@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+.ipynb_checkpoints/
+
+# Google satellite imagery for local download, no need to commit.
+data/
+__MACOSX/
+
+# Training artifacts
+outputs/
+*.pt
