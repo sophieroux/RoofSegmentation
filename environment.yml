@@ -1,0 +1,11 @@
+name: roofseg
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy>=1.26
+  - pillow>=10
+  - pip
+  - pip:
+      - albumentations>=1.4,<2
+      - torch>=2.2
