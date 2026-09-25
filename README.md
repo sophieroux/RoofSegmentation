@@ -24,3 +24,11 @@
 - the gray label fades at roof edge. brighter than 127 is roof, darker is not.
 
 
+### What the network has to beat 
+
+- on the training images, around 15% of pixels that are there are roof. This rate I call $p_0$. The null guess assigns every pixel the rate $p_0$.
+- five labeled images are left out of the first fit (picked by id, seed 41): 274, 278, 300, 320, 532. the five unlabeled images are never used for training
+- for each left out image, the real roof and background pixels are scored under $p_0$ and under the network. the network has to come out ahead. The score is saved from `selection.pt`
+- Soft Dice is only in the training loss, because the roof is a small part of the photo.
+- the five masks to send come from a second fit, `final.pt`. this run uses all 25 labels, for the same number of epochs the first run has, but starting from new weights. Those marks were not scored. 
+
