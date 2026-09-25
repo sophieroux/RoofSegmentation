@@ -16,3 +16,11 @@
 
 
 ### Understanding the data
+
+- photos are 256 by 256 PNG files in `data/images`, labels in `data/labels`, same id in the filename. Those folders are not in the repo. `python -m roofseg.download` fetches the zip
+- images are RGBA. The label is grayscale.
+- The five without a label are the following: 535, 537, 539, 551, and 553
+- where the alpha channel is below 128, color is also black. that pixel is missing, so it is left out of the count and drawn as backhround in the mask that is sent
+- the gray label fades at roof edge. brighter than 127 is roof, darker is not.
+
+
