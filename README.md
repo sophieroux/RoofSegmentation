@@ -30,5 +30,15 @@
 - five labeled images are left out of the first fit (picked by id, seed 41): 274, 278, 300, 320, 532. the five unlabeled images are never used for training
 - for each left out image, the real roof and background pixels are scored under $p_0$ and under the network. the network has to come out ahead. The score is saved from `selection.pt`
 - Soft Dice is only in the training loss, because the roof is a small part of the photo.
-- the five masks to send come from a second fit, `final.pt`. this run uses all 25 labels, for the same number of epochs the first run has, but starting from new weights. Those marks were not scored. 
+- the five masks to send come from a second fit, `final.pt`. this run uses all 25 labels, for the same number of epochs the first run has, but starting from new weights. Those marks were not scored.
+
+### What came out 
+
+- the first fit stopped at epoch 15. After that, the five photos the network had not seen got worse
+- on four of those five photos, the network's probabilities fit the real roof better than painting 15% on every pixel. On image 278 they fit worse
+- image 274: the probabilities are a bit better than 15%, but no pixel reaches 50%. A pixel is painted as roof only when the network is at least half sure, so the drawing is blank
+- image 278: a few pixels land on the real roof, and some other pixels are nearly certain and wrong. those certain mistakes make the whole image much worse than the 15% guess
+- images 300, 320, and 532: the painted roofs sit on the real roofs. image 320 matches best
+
+
 
