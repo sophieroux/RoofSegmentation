@@ -40,5 +40,16 @@
 - image 278: a few pixels land on the real roof, and some other pixels are nearly certain and wrong. those certain mistakes make the whole image much worse than the 15% guess
 - images 300, 320, and 532: the painted roofs sit on the real roofs. image 320 matches best
 
+  
+### How to run
+
+- `make env` builds the conda environment from `environment.yml`. then `conda activate roofseg`
+- `python -m roofseg.download` fetches the photos into `data/`
+- `python -m roofseg.train` does both fits. it writes `outputs/checkpoints/selection.pt`, `outputs/checkpoints/final.pt`, the five masks in `outputs/predictions/`, and `outputs/metrics.json`
+- `python -m roofseg.predict` draws those five masks again from `final.pt`, without training
+- `make test` checks that missing tile stays out of the count, and that the roof drawing stays on the roof even when flipped
+- `roof_segmentation.ipynb` shows a few images, the table for the left-out ones and the five masks. Run the fit first or else the notebook has nothing to read 
+
+
 
 
