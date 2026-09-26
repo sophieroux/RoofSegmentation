@@ -20,7 +20,7 @@
 - photos are 256 by 256 PNG files in `data/images`, labels in `data/labels`, same id in the filename. Those folders are not in the repo. `python -m roofseg.download` fetches the zip
 - images are RGBA. The label is grayscale.
 - The five without a label are the following: 535, 537, 539, 551, and 553
-- where the alpha channel is below 128, color is also black. that pixel is missing, so it is left out of the count and drawn as backhround in the mask that is sent
+- where the alpha channel is below 128, color is also black. that pixel is missing, so it is left out of the count and drawn as background in the mask that is sent
 - the gray label fades at roof edge. brighter than 127 is roof, darker is not.
 
 
@@ -30,7 +30,7 @@
 - five labeled images are left out of the first fit (picked by id, seed 41): 274, 278, 300, 320, 532. the five unlabeled images are never used for training
 - for each left out image, the real roof and background pixels are scored under $p_0$ and under the network. the network has to come out ahead. The score is saved from `selection.pt`
 - Soft Dice is only in the training loss, because the roof is a small part of the photo.
-- the five masks to send come from a second fit, `final.pt`. this run uses all 25 labels, for the same number of epochs the first run has, but starting from new weights. Those marks were not scored.
+- the five masks to send come from a second fit, `final.pt`. this run uses all 25 labels, for the same number of epochs the first run has, but starting from new weights. Those masks were not scored.
 
 ### What came out 
 
